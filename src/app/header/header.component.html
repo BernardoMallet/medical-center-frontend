@@ -1,0 +1,14 @@
+<header>
+    <nav id='menu'>
+        <input type='checkbox' id='responsive-menu' onclick='updatemenu()'><label></label>
+        <ul>
+        <li><img src="./assets/pngwing.com.png" width="50px" style="margin-top: 10px;" alt="MedicalCenter - NavBar"></li>
+          <li><a routerLink="/patient/new">Pacientes </a></li>
+          <li><a routerLink="/patient/view">Consulta</a></li>
+          <li><a routerLink="/signup">Cadastrar Usuário</a></li>
+         
+          <li id="lilogout"><a (click)="logout()"><img id="logout" src="./assets/outline_logout_black_18dp.png" alt="Logout - Medical Center"></a></li>
+        </ul>
+      </nav>
+
+</header>

@@ -1,0 +1,54 @@
+#botoes {
+     
+    margin-top: 1rem;   
+
+   }     
+
+ #botaocadastrar {
+     margin-right: 20px;
+ }  
+ 
+
+ #CPF, #nomedopaciente {
+     margin-top: 10px;
+     margin-bottom: 10px;
+ }
+ 
+ h4 {
+     text-align:left;
+     margin-top: 15px;
+     font-family: Arial, Helvetica, sans-serif;
+     font-size: 30px;
+     color: rgb(177, 170, 170);
+     
+ }
+
+ #cep {
+     margin-right: 5px;
+ }
+ 
+ #RUA {
+     margin-right: 5px;
+ }
+
+ #complemento {
+     margin-left: 5px;
+ }
+ 
+ #estado {
+     margin-left: 5px;
+ }
+
+ #cidade {
+     margin-left: 5px;
+ }
+
+ textarea {
+     max-width: 100%;
+     display: flex;
+     align-items: center;
+ }
+
+ .w-49{
+     width: 49%;
+ }

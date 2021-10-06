@@ -1,1 +1,44 @@
-/* You can add global styles to this file, and also import other style files */
+
+
+.field-required {
+	border: 1px solid red;
+}
+
+.mat-snack-bar-container {
+	padding: 0.75rem 1.25rem;
+	margin-bottom: 1rem;
+	border: 1px solid transparent;
+	border-radius: 0.25rem;
+}
+
+.mat-simple-snackbar {
+	font-weight: 400;
+	font-size: 16px;
+	justify-content: center !important;
+}
+
+.snackbar-error{
+		color: #721c24;
+    background-color: #f8d7da !important;
+    border-color: #f5c6cb;
+	}
+
+
+.snackbar-success{
+	color: #155724;
+    background-color: #d4edda !important;
+    border-color: #c3e6cb;
+}
+
+.snackbar-warning{
+	color: #856404;
+    background-color: #fff3cd !important;
+    border-color: #ffeeba;
+}
+
+footer {
+	position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%
+}

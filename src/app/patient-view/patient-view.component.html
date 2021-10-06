@@ -1,0 +1,38 @@
+<main>
+  <div id="pesquisarecadastrar" class="container">
+    <div class="d-flex justify-content-between">
+      <form class="d-flex w-25" [formGroup]="form">
+        <input class="form-control me-2" type="search" formControlName="filter" placeholder="Paciente, CPF ou Médico"
+          aria-label="Search">
+        <button class="btn btn-outline-primary" type="submit" (click)="loadPatients(0)">Pesquisar</button>
+      </form>
+      <a routerLink="/patient/new"><button class="btn btn-outline-primary">Cadastrar Paciente</button></a>
+    </div>
+  </div>
+
+  <div id="container-table" class="container">
+    <table class="table table-secondary table-striped">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>CPF</th>
+          <th>Médico</th>
+          <th>Última Prescrição</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let p of patient">
+          <td data-th="Nome">{{p.name}}</td>
+          <td data-th="CPF">{{p.cpf}}</td>
+          <td data-th="Médico">{{p.doctor?.name}}</td>
+          <td data-th="Última Prescrição">{{p.createdAt | date: 'dd/MM/yyyy'}}</td>
+          <td data-th="Status" *ngIf="p.status === 'ACTIVE'">Ativo</td>
+          <td data-th="Status" *ngIf="p.status === 'INACTIVE'">Inativo</td>
+        </tr>
+      </tbody>
+    </table>
+    <mat-paginator #paginatorDetails [length]="result?.totalElements" [pageSize]="result?.size" (page)="nextPage($event)">
+    </mat-paginator>
+  </div>
+</main>

@@ -1,0 +1,133 @@
+<main id="container" class="container mt-1">
+    <form [formGroup]="form">
+        <div class="d-flex flex-wrap justify-content-between" >
+            <div id="medico" style="width: 100%;" class="d-flex form-floating">
+                <select class="form-select w-100" id="floatingSelect" formControlName="doctor"
+                    aria-label="Floating label select" [ngClass]="{
+            'field-required':
+              this.form.get('doctor')?.invalid && submitRequested == true
+             }">
+                    <option value="">Selecione</option>
+                    <option *ngFor="let doctor of doctors" [ngValue]="doctor">{{doctor.name}} - {{doctor.speciality}}
+                    </option>
+                </select>
+            </div>
+
+            <div id="CPF" class="input-group w-49">
+                <span class="input-group-text" id="inputGroup-sizing-default">CPF</span>
+                <input type="text" class="form-control" formControlName="cpf" aria-label="Sizing example"
+                    aria-describedby="inputGroup-sizing" [ngClass]="{
+                'field-required':
+                  this.form.get('cpf')?.invalid && submitRequested == true
+                 }">
+            </div>
+
+            <div id="nomedopaciente" class="input-group w-49">
+                <span class="input-group-text" id="inputGroup-sizing-default">Nome</span>
+                <input type="text" class="form-control" aria-label="Sizing example" formControlName="name"
+                    aria-describedby="inputGroup-sizing" [ngClass]="{
+                'field-required':
+                  this.form.get('name')?.invalid && submitRequested == true
+                 }">
+            </div>
+        </div>
+
+        <h4>Endereço</h4>   
+
+        <div id="container2" class="d-flex flex-row ">
+            <div id="cep" class="input-group mb-3 w-25">
+                <span class="input-group-text" id="inputGroup-sizing-default">CEP</span>
+                <input type="text" class="form-control" (change)="loadAddress()" aria-label="Sizing example"
+                    formControlName="cep" aria-describedby="inputGroup-sizing" [ngClass]="{
+                    'field-required':
+                      this.form.get('cep')?.invalid && submitRequested == true
+                     }">
+            </div>
+            <div id="RUA" class="input-group mb-3 w-50">
+                <span class="input-group-text" id="inputGroup-sizing-default">Rua</span>
+                <input type="text" class="form-control" aria-label="Sizing example" formControlName="street"
+                    aria-describedby="inputGroup-sizing" [ngClass]="{
+                    'field-required':
+                      this.form.get('street')?.invalid && submitRequested == true
+                     }">
+            </div>
+            <div id="numero" class="input-group mb-3 w-25">
+                <span class="input-group-text" id="inputGroup-sizing-default">Número</span>
+                <input type="number" class="form-control" aria-label="Sizing example" formControlName="number"
+                    aria-describedby="inputGroup-sizing" [ngClass]="{
+                    'field-required':
+                      this.form.get('number')?.invalid && submitRequested == true
+                     }">
+            </div>
+        </div>
+
+        <div id="container3" class="d-flex flex-row">
+
+            <div id="bairro" class="input-group mb-3 w-25">
+                <span class="input-group-text" id="inputGroup-sizing-default">Bairro</span>
+                <input type="text" class="form-control" aria-label="Sizing example" formControlName="neighborhood"
+                    aria-describedby="inputGroup-sizing" [ngClass]="{
+                    'field-required':
+                      this.form.get('neighborhood')?.invalid && submitRequested == true
+                     }">
+            </div>
+            <div id="complemento" class="input-group mb-3 w-25">
+                <span class="input-group-text" id="inputGroup-sizing-default">Complemento</span>
+                <input type="text" class="form-control" aria-label="Sizing example" formControlName="complement"
+                    aria-describedby="inputGroup-sizing" [ngClass]="{
+                    'field-required':
+                      this.form.get('complement')?.invalid && submitRequested == true
+                     }">
+            </div>
+
+            <div id="estado" class="input-group mb-3 w-25">
+                <select class="form-select" id="floatingSelect" formControlName="state"
+                    aria-label="Floating label select" [(ngModel)]="selectedState" (change)="loadCities()" [ngClass]="{
+                    'field-required':
+                      this.form.get('state')?.invalid && submitRequested == true
+                     }">
+                    <option *ngFor="let e of states" [ngValue]="e">{{e.sigla}}</option>
+                </select>
+            </div>
+
+            <div id="cidade" class="input-group mb-3 w-25">
+                <select class="form-select" id="floatingSelect" formControlName="city"
+                    aria-label="Floating label select" [(ngModel)]="selectedCity" [ngClass]="{
+                    'field-required':
+                      this.form.get('city')?.invalid && submitRequested == true
+                     }">
+                    <option *ngFor="let e of cities" [ngValue]="e">{{e}}</option>
+                </select>
+            </div>
+
+
+
+
+        </div>
+
+
+
+
+        <div class="form-group">
+            <label for="exampleFormControlTextarea1">
+                <h4>Oberservação</h4>
+            </label>
+            <textarea id="textarea" class="form-control align-items-center" formControlName="obs" rows="5" [ngClass]="{
+            'field-required':
+              this.form.get('obs')?.invalid && submitRequested == true
+             }"></textarea>
+        </div>
+
+        <div id="botoes" class="d-flex justify-content-end">
+            <a href="#"><button type="submit" id="botaocadastrar" class="btn btn-outline-primary"
+                    (click)="submit()">Cadastrar</button></a>
+
+            <input id="botaocancelar" type="reset" class="btn btn-primary" (click)="clearForm()" value="Cancelar" />
+        </div>
+
+
+
+
+
+    </form>
+</main>

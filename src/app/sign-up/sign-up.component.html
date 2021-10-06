@@ -1,0 +1,94 @@
+<section>
+  <div id="logo" class="d-flex flex-row justify-content-center">
+    <div id="h3">
+      <h3>Cadastro de novo usuário</h3>
+    </div>
+
+    <div id="imagem">
+      <img src="./assets/pngwing.com.png" style="margin-top: 100px; margin-left: 10px;" width="40px" alt="">
+    </div>
+  </div>
+</section>
+
+<form [formGroup]="form">
+
+  <main>
+
+    <div id="container" class="container d-flex flex-column">
+
+      <div id="cpf" class="form-floating col-lg-6">
+        <input type="text" formControlName="cpf" class="form-control mb-3" id="floatingInput" placeholder="CPF"
+          [ngClass]="{
+            'field-required':
+              this.form.get('cpf')?.invalid && submitRequested == true
+             }">
+        <label for="floatingInput">CPF</label>
+      </div>
+      <div id="name" class="form-floating col-lg-6">
+        <input type="text" formControlName="name" class="form-control" id="floatingInput" placeholder="Nome completo"
+          [ngClass]="{
+            'field-required':
+              this.form.get('name')?.invalid && submitRequested == true
+             }">
+        <label for="floatingPassword">Nome completo</label>
+      </div>
+      <div id="mail" class="form-floating col-lg-6">
+        <input type="text" formControlName="mail" class="form-control mb-3" id="floatingInput" placeholder="E-mail"
+          [ngClass]="{
+            'field-required':
+              this.form.get('mail')?.invalid && submitRequested == true
+             }">
+        <label for="floatingInput">E-mail</label>
+      </div>
+      <div id="tel" class="form-floating col-lg-6">
+        <input type="text" formControlName="phone" class="form-control" id="floatingInput" placeholder="Telefone"
+          [ngClass]="{
+            'field-required':
+              this.form.get('phone')?.invalid && submitRequested == true
+             }">
+        <label for="floatingPassword">Telefone</label>
+      </div>
+
+      <div id="genero" class="form-floating col-lg-3 ">
+        <select class="form-select" formControlName="gener" id="floatingSelect"
+          aria-label="Floating label select example">
+          <option selected>Selecionar</option>
+          <option value="F">Feminino</option>
+          <option value="M">Masculino</option>
+          <option value="O">Outros</option>
+        </select>
+        <label for="floatingSelect">Gênero</label>
+      </div>
+
+      <div id="senha" class="form-floating col-lg-6">
+        <input type="password" formControlName="password" class="form-control" id="floatingPassword"
+          placeholder="Password" [ngClass]="{
+            'field-required':
+              this.form.get('password')?.invalid && submitRequested == true
+             }">
+        <label for="floatingPassword">Senha</label>
+      </div>
+      <div id="reptsenha" class="form-floating col-lg-6">
+        <input type="password" formControlName="repassword" class="form-control" id="floatingPassword"
+          placeholder="Password" [ngClass]="{
+            'field-required':
+              this.form.get('repassword')?.invalid && submitRequested == true
+             }">
+        <label for="floatingPassword">Repita a senha</label>
+      </div>
+
+    </div>
+
+    <div *ngIf="passwordsAreDifferent"> As senhas não conferem!!!</div>
+
+    <div class="d-flex flex-column align-items-center">
+      <button id="botaocadastrar" (click)="submitForm($event)">Cadastrar</button>
+    </div>
+
+    <div class="d-flex flex-column align-items-center">
+      <a routerLink="/login"><button id="botaocadastrar">Login</button></a>
+    </div>
+
+  </main>
+
+</form>

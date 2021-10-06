@@ -1,0 +1,46 @@
+<header>
+  <img src="./assets/pngwing.com.png" alt="MedicalCenter" width="150px;">
+</header>
+
+<body>
+
+  <form [formGroup]="form">
+    <div id="inputbox">
+
+      <div class="row d-flex flex-column align-items-center">
+        <label id="usuario" for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">
+          <h5 class="d-flex justify-content-center">Usuário</h5>
+        </label>
+        <div class="col-sm-3">
+          <input type="text" class="form-control form-control-lg" id="colFormLabelLg" formControlName="userName"
+            [ngClass]="{
+              'field-required':
+                this.form.get('userName')?.invalid && submitRequested == true
+               }">
+
+
+        </div>
+        <label id="senha" for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">
+          <h5 class="d-flex justify-content-center">Senha</h5>
+        </label>
+        <div class="col-sm-3">
+          <input type="password" class="form-control form-control-lg" id="colFormLabelLg" formControlName="password"
+            [ngClass]="{
+              'field-required':
+                this.form.get('password')?.invalid && submitRequested == true
+               }">
+        </div>
+      </div>
+
+
+      <div class="d-flex flex-column align-items-center">
+        <button (click)="submitForm()" id="botaologin">Login</button>
+      </div>
+
+    </div>
+
+  </form>
+
+  <div class="d-flex flex-column align-items-center">
+    <a routerLink="/signup"><button id="botaocadastro">Cadastre-se</button></a>
+  </div>
